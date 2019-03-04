@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RGB : Color chart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="rgb kolory html css hex alpha">
+  <meta name="author" content="® takethenextstep.pl 2019">
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 5vmin;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .color-background {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      transition: background 2s;
+    }
+
+    .text-background {
+      position: absolute;
+      top: -25vh;
+      width: 100vw;
+      height: 150vh;
+      z-index: -3;
+      overflow: hidden;
+    }
+
+    .text-background p {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 15vmin;
+      transform: skew(-15deg) rotate(-15deg);
+      color: #383838;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .content {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+
+    .paints-container {
+      position: relative;
+      width: 100%;
+      height: 30%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+
+    .paint {
+      position: relative;
+      max-width: 20vmin;
+      padding-bottom: 0 !important;
+      margin-right: 2vmin;
+    }
+
+    .paint:last-child {
+      margin-right: 0;
+    }
+
+    .paint-contour {
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .paint-color {
+      position: absolute;
+      bottom: 13%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0 0 5% 5%;
+      width: 60%;
+      height: 50%;
+      z-index: -1;
+      transition: max-height 2s;
+    }
+
+    .paint.red .paint-color {
+      background-color: red;
+    }
+
+    .paint.green .paint-color {
+      background-color: green;
+    }
+
+    .paint.blue .paint-color {
+      background-color: blue;
+    }
+
+    .paint.alpha .paint-color {
+      border: #333 thin solid;
+      background-image: linear-gradient(90deg, #333 2vmin, white 2vmin),
+      linear-gradient(90deg, white 2vmin, #333 2vmin),
+      linear-gradient(90deg, #333 2vmin, white 2vmin),
+      linear-gradient(90deg, white 2vmin, #333 2vmin),
+      linear-gradient(90deg, #333 2vmin, white 2vmin),
+      linear-gradient(90deg, white 2vmin, #333 2vmin),
+      linear-gradient(90deg, #333 2vmin, white 2vmin),
+      linear-gradient(90deg, white 2vmin, #333 2vmin),
+      linear-gradient(90deg, #333 2vmin, white 2vmin);
+      background-position: 0 0, 0 2vmin, 0 4vmin, 0 6vmin, 0 8vmin, 0 10vmin, 0 12vmin, 0 14vmin;
+      background-repeat: repeat-x;
+      background-size: 4vmin 2vmin, 4vmin 2vmin, 4vmin 2vmin, 4vmin 2vmin, 4vmin 2vmin, 4vmin 2vmin, 4vmin 2vmin, 4vmin 2vmin;
+    }
+
+    .paint-color-hidden {
+      display: none;
+    }
+
+    .text-container {
+      width: 100%;
+      height: 30%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+    }
+
+    .text-container .rgba {
+      max-height: 33%;
+      flex: 0 0 auto;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      cursor: pointer;
+    }
+
+    .rgba p {
+      display: inline-block;
+      margin: 0;
+    }
+
+    .rgba input, .hex input {
+      display: inline-block;
+      border: 1px black solid;
+      text-align: right;
+      /*background-color : rgba(0, 0, 0, 0.85);*/
+      background-color: rgba(195, 145, 60, 0.75);
+    }
+
+    input[name="red"], .hex span.red {
+      color: red;
+    }
+
+    input[name="green"], .hex span.green {
+      color: green;
+    }
+
+    input[name="blue"], .hex span.blue {
+      color: blue;
+    }
+
+    input[name="alpha"] {
+      color: gray;
+    }
+
+    .hex {
+      max-height: 50%;
+      flex: 0 0 auto;
+      cursor: pointer;
+    }
+
+    .hex p {
+      display: inline-block;
+      margin: 0;
+    }
+
+    .stripes-background {
+      padding: 1vmin;
+      background: repeating-linear-gradient(
+          to right,
+          #f6ba52,
+          #f6ba52 10px,
+          #ffd180 10px,
+          #ffd180 20px
+      );
+      border-radius: 2.5vmin;
+      -webkit-box-shadow: 5px 5px 10px 2px rgba(30, 32, 33, 1);
+      -moz-box-shadow: 5px 5px 10px 2px rgba(30, 32, 33, 1);
+      box-shadow: 5px 5px 10px 2px rgba(30, 32, 33, 1);
+      z-index: 1;
+    }
+
+    .info {
+      position: absolute;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      color: #000;
+      font-size: 2.5vmax;
+      transform: skew(-5deg) rotate(-5deg);
+      animation: fly 2.5s 1 ease-out;
+      z-index: 100;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+      20% {
+        transform: translate(20px, -20px);
+      }
+      40% {
+        transform: translate(-20px, -40px);
+      }
+      60% {
+        transform: translate(20px, -60px);
+      }
+      80% {
+        transform: translate(-20px, -80px);
+      }
+      100% {
+        transform: translate(0, -100px);
+        opacity: 0;
+      }
+    }
+  </style>
+
+</head>
+<body>
+<div class="color-background"></div>
+<div class="text-background">
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+</div>
+<div class="content">
+  <div class="paints-container">
+    <div class="paint red stripes-background">
+      <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+        <title>Click on me to easy change color value</title>
+        <path
+            d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
+      </svg>
+      <div class="paint-color paint-color-hidden"></div>
+    </div>
+    <div class="paint green stripes-background">
+      <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+        <title>Click on me to easy change color value</title>
+        <path
+            d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
+      </svg>
+      <div class="paint-color paint-color-hidden"></div>
+    </div>
+    <div class="paint blue stripes-background">
+      <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+        <title>Click on me to easy change color value</title>
+        <path
+            d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
+      </svg>
+      <div class="paint-color paint-color-hidden"></div>
+    </div>
+    <div class="paint alpha stripes-background">
+      <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+        <title>Click on me to easy change color value</title>
+        <path
+            d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
+      </svg>
+      <div class="paint-color paint-color-hidden"></div>
+    </div>
+  </div>
+  <div class="text-container">
+    <div class="rgba stripes-background" title="Click here to copy this color to clipboard">
+      <p>rgba(</p>
+      <input type="number" value="77" step="10" min="0" max="255" name="red"/>
+      <p>, </p>
+      <input type="number" value="173" step="10" min="0" max="255" name="green"/>
+      <p>, </p>
+      <input type="number" value="143" step="10" min="0" max="255" name="blue"/>
+      <p>, </p>
+      <input type="number" value="0.9" step="0.05" min="0" max="1" name="alpha"/>
+      <p>;</p>
+    </div>
+    <div class="hex stripes-background" title="Click here to copy this color to clipboard">
+      <p>#<span class="red">00</span><span class="green">00</span><span class="blue">00</span>;</p>
+    </div>
+  </div>
+</div>
+<script>
+  const inputs = [...document.querySelectorAll('.rgba > input')];
+  let color = {
+    red: inputs[0].value,
+    green: inputs[1].value,
+    blue: inputs[2].value,
+    alpha: inputs[3].value,
+    changeWithoutUpdate: function (property, value) {
+      if (color != 'alpha') {
+        color[property] = Math.min(Math.max(value, 0), 255);
+      } else {
+        color[property] = Math.min(Math.max(value, 0), 1);
+      }
+    },
+    change: function (property, value) {
+      color.changeWithoutUpdate(property, value);
+      updateScreen();
+    },
+    get: function () {
+      return 'rgba(' + color.red + ", " + color.green + ', ' + color.blue + ', ' + color.alpha + ')';
+    },
+    tryToParseFromHex: function (hex) {
+      let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+
+      if (result != null) {
+        color.changeWithoutUpdate('red', parseInt(result[1], 16));
+        color.changeWithoutUpdate('green', parseInt(result[2], 16));
+        color.change('blue', parseInt(result[3], 16));
+      }
+    }
+  };
+  const hiddenClass = 'paint-color-hidden';
+  const colorBackground = document.querySelector('.color-background');
+  const paintContours = document.querySelectorAll('.paint-contour');
+
+  String.prototype.pad = function (size) {
+    var s = this;
+    while (s.length < (size || 2)) {
+      s = "0" + s;
+    }
+    return s;
+  };
+
+  function decimalToHexString(number) {
+    if (number < 0) {
+      number = 0xFFFFFFFF + number + 1;
+    }
+
+    return number.toString(16).toUpperCase().pad(2);
+  }
+
+  function updateScreen() {
+    for (let key in color) {
+      if (color.hasOwnProperty(key) && typeof(color[key]) != 'function') {
+        let value = color[key], height;
+        let paintColor = document.querySelector('.paint.' + key + ' > .paint-color');
+        if (key != 'alpha') {
+          let span = document.querySelector('span.' + key);
+          span.textContent = decimalToHexString(parseInt(value));
+          if (value == 0) {
+            paintColor.classList.add(hiddenClass);
+          } else {
+            paintColor.classList.remove(hiddenClass);
+            height = (value / 255) * 50;
+            paintColor.style.maxHeight = height + "%"
+          }
+        } else {
+          if (value == 1) {
+            paintColor.classList.add(hiddenClass);
+          } else {
+            paintColor.classList.remove(hiddenClass);
+            height = 50 - (value / 1) * 50;
+            paintColor.style.maxHeight = height + "%"
+          }
+        }
+
+        let input = document.querySelector('input[name="' + key + '"');
+        if (key == 'alpha') {
+          input.value = parseFloat(color[key]).toFixed(2);
+        } else {
+          input.value = color[key];
+        }
+      }
+    }
+
+    colorBackground.style.backgroundColor = color.get();
+  }
+
+  inputs.forEach(input => {
+    input.addEventListener('change', function () {
+      color.change(this.name, this.value);
+    });
+
+    input.addEventListener('click', function (e) {
+      color.change(this.name, this.value);
+      e.stopPropagation();
+    });
+  });
+
+  paintContours.forEach(contour => {
+    contour.addEventListener('mousedown', function (e) {
+          let percentPoint = Math.round(e.offsetY / this.clientHeight * 100);
+          let property, value = 0;
+
+          const parent = this.parentNode;
+          const parentsClasses = [...parent.classList];
+
+          if (parentsClasses.includes('red')) {
+            property = 'red';
+          } else if (parentsClasses.includes('green')) {
+            property = 'green';
+          } else if (parentsClasses.includes('blue')) {
+            property = 'blue';
+          } else if (parentsClasses.includes('alpha')) {
+            property = 'alpha';
+          }
+
+          if (property != 'alpha') {
+            if (percentPoint < 30) {
+              value = 255;
+            } else if (value > 90) {
+              value = 0;
+            } else if (percentPoint > 30 && percentPoint < 60) {
+              value = (60 - percentPoint) / (60 - 30) * (255 - 126) + 126;
+            } else {
+              value = (90 - percentPoint) / (90 - 60) * 126;
+            }
+            value = Math.round(value);
+          } else {
+            if (percentPoint < 30) {
+              value = 1;
+            } else if (percentPoint > 90) {
+              value = 0;
+            } else if (percentPoint > 30 && percentPoint < 60) {
+              value = (60 - percentPoint) / (60 - 30) * (1 - 0.5) + 0.5;
+            } else {
+              value = (90 - percentPoint) / (90 - 60);
+            }
+            value = Math.round(value * 100) / 100;
+            value = 1 - value;
+          }
+
+          color.change(property, value);
+        }
+    );
+  });
+
+  copyToClipboard = str => {
+    const textArea = document.createElement('textarea');
+    textArea.value = str;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+  };
+
+  showInfo = (position, info) => {
+    let p = document.createElement('p');
+    p.classList.add('info');
+    p.style.left = position.x + 'px';
+    p.style.top = position.y + 'px';
+    p.innerHTML = info;
+    document.body.appendChild(p);
+    console.log(p.style.left);
+    setTimeout(()=> {
+      document.body.removeChild(p);
+    }, 2500);
+  };
+
+  const rgbaContainer = document.querySelector('.rgba');
+  const hexContainer = document.querySelector('.hex');
+
+  rgbaContainer.addEventListener('click', function (e) {
+    let rgbaColor = 'rgba(' + color.red + ', ' + color.green + ', ' + color.blue + ', ' + color.alpha + ')';
+    rgbaColor += ';';
+    copyToClipboard(rgbaColor);
+
+    showInfo({ x: this.offsetLeft + e.layerX, y: this.offsetTop + e.layerY }, "Copied to clipboard!");
+  });
+
+  hexContainer.addEventListener('click', function (e) {
+    const spans = [...document.querySelectorAll('.hex span')];
+    let hexColor = '#';
+    spans.forEach(span => {
+      hexColor += span.textContent;
+    });
+    hexColor += ';';
+    copyToClipboard(hexColor);
+
+    showInfo({ x: this.offsetLeft + e.layerX, y: this.offsetTop + e.layerY }, "Copied to clipboard!");
+  });
+
+  const hexP = document.querySelector('.hex p');
+  hexP.addEventListener('click', function (e) {
+    let input = document.createElement('input');
+    input.type = 'text';
+    input.value = [...hexP.querySelectorAll('span')].map(span => span.textContent).join('');
+    let orgHTML = hexP.innerHTML;
+    input.style.width = hexP.offsetWidth + 'px';
+    hexP.innerHTML = '';
+    hexP.appendChild(input);
+    input.focus();
+    input.addEventListener('click', function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    });
+    input.addEventListener('blur', function (e) {
+      hexP.innerHTML = orgHTML;
+      color.tryToParseFromHex(this.value);
+    });
+    input.addEventListener('keypress', function (e) {
+      if (e.keyCode == 13) {
+        input.blur();
+      }
+    });
+    e.stopPropagation();
+  });
+
+  updateScreen();
+</script>
+</body>
+</html>
