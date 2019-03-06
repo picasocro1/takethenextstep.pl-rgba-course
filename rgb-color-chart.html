@@ -157,6 +157,7 @@
     }
 
     .rgba input, .hex input {
+      width: 14vmin;
       display: inline-block;
       border: 1px black solid;
       text-align: right;
@@ -219,6 +220,10 @@
       z-index: 100;
     }
 
+    .hidden {
+      display: none;
+    }
+
     @keyframes fly {
       0% {
         transform: translate(0, 0);
@@ -245,290 +250,294 @@
 
 </head>
 <body>
-<div class="color-background"></div>
-<div class="text-background">
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-  <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
-</div>
-<div class="content">
-  <div class="paints-container">
-    <div class="paint red stripes-background">
-      <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
-        <title>Click on me to easy change color value</title>
-        <path
-            d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
-      </svg>
-      <div class="paint-color paint-color-hidden"></div>
+  <div class="color-background"></div>
+  <div class="text-background">
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+    <p>TAKETHENEXTSTEP.PL TAKETHENEXTSTEP.PL</p>
+  </div>
+  <div class="content">
+    <div class="paints-container">
+      <div class="paint red stripes-background">
+        <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+          <title>Click on me to easy change color value</title>
+          <path
+              d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
+        </svg>
+        <div class="paint-color paint-color-hidden"></div>
+      </div>
+      <div class="paint green stripes-background">
+        <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+          <title>Click on me to easy change color value</title>
+          <path
+              d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
+        </svg>
+        <div class="paint-color paint-color-hidden"></div>
+      </div>
+      <div class="paint blue stripes-background">
+        <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+          <title>Click on me to easy change color value</title>
+          <path
+              d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
+        </svg>
+        <div class="paint-color paint-color-hidden"></div>
+      </div>
+      <div class="paint alpha stripes-background">
+        <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+          <title>Click on me to easy change color value</title>
+          <path
+              d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
+        </svg>
+        <div class="paint-color paint-color-hidden"></div>
+      </div>
     </div>
-    <div class="paint green stripes-background">
-      <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
-        <title>Click on me to easy change color value</title>
-        <path
-            d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
-      </svg>
-      <div class="paint-color paint-color-hidden"></div>
-    </div>
-    <div class="paint blue stripes-background">
-      <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
-        <title>Click on me to easy change color value</title>
-        <path
-            d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
-      </svg>
-      <div class="paint-color paint-color-hidden"></div>
-    </div>
-    <div class="paint alpha stripes-background">
-      <svg class="paint-contour" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
-        <title>Click on me to easy change color value</title>
-        <path
-            d="M12.031 0c-5.064 0-9.031 3.075-9.031 7v13.253c0 1.994 3 3.747 9.029 3.747 5.94 0 8.971-1.745 8.971-3.747v-13.253c0-3.925-3.939-7-8.969-7zm0 1c4.295 0 7.686 2.437 7.943 5.612-1.501-.958-4.505-1.612-7.974-1.612-3.467 0-6.472.654-7.975 1.612.261-3.175 3.678-5.612 8.006-5.612zm.047 8.781c-2.053 0-6.489-.39-6.489-1.391 0-1.01 3.986-1.39 6.489-1.39 2.568 0 6.512.39 6.512 1.391 0 1.01-4.41 1.39-6.512 1.39zm-.049 12.219c-5.397 0-6.966-1.481-7.029-1.747v-9.508c1.549.787 4.5 1.234 6.979 1.234 2.396 0 5.473-.448 7.021-1.233l.002 9.5c-.066.273-1.627 1.754-6.973 1.754z"/>
-      </svg>
-      <div class="paint-color paint-color-hidden"></div>
+    <div class="text-container">
+      <div class="rgba stripes-background" title="Click here to copy this color to clipboard">
+        <p>rgba(</p>
+        <input type="number" value="77" step="10" min="0" max="255" name="red"/>
+        <p>, </p>
+        <input type="number" value="173" step="10" min="0" max="255" name="green"/>
+        <p>, </p>
+        <input type="number" value="143" step="10" min="0" max="255" name="blue"/>
+        <p>, </p>
+        <input type="number" value="0.9" step="0.05" min="0" max="1" name="alpha"/>
+        <p>;</p>
+      </div>
+      <div class="hex stripes-background" title="Click here to copy this color to clipboard">
+        <p>#<span class="red">00</span><span class="green">00</span><span class="blue">00</span><span class="alpha hidden">00</span>;</p>
+      </div>
     </div>
   </div>
-  <div class="text-container">
-    <div class="rgba stripes-background" title="Click here to copy this color to clipboard">
-      <p>rgba(</p>
-      <input type="number" value="77" step="10" min="0" max="255" name="red"/>
-      <p>, </p>
-      <input type="number" value="173" step="10" min="0" max="255" name="green"/>
-      <p>, </p>
-      <input type="number" value="143" step="10" min="0" max="255" name="blue"/>
-      <p>, </p>
-      <input type="number" value="0.9" step="0.05" min="0" max="1" name="alpha"/>
-      <p>;</p>
-    </div>
-    <div class="hex stripes-background" title="Click here to copy this color to clipboard">
-      <p>#<span class="red">00</span><span class="green">00</span><span class="blue">00</span>;</p>
-    </div>
-  </div>
-</div>
-<script>
-  const inputs = [...document.querySelectorAll('.rgba > input')];
-  let color = {
-    red: inputs[0].value,
-    green: inputs[1].value,
-    blue: inputs[2].value,
-    alpha: inputs[3].value,
-    changeWithoutUpdate: function (property, value) {
-      if (color != 'alpha') {
-        color[property] = Math.min(Math.max(value, 0), 255);
-      } else {
-        color[property] = Math.min(Math.max(value, 0), 1);
+  <script>
+    const inputs = [...document.querySelectorAll('.rgba > input')];
+    let color = {
+      red: inputs[0].value,
+      green: inputs[1].value,
+      blue: inputs[2].value,
+      alpha: inputs[3].value,
+      changeWithoutUpdate: function (property, value) {
+        if (color != 'alpha') {
+          color[property] = Math.min(Math.max(value, 0), 255);
+        } else {
+          color[property] = Math.min(Math.max(value, 0), 1);
+        }
+      },
+      change: function (property, value) {
+        color.changeWithoutUpdate(property, value);
+        updateScreen();
+      },
+      get: function () {
+        return 'rgba(' + color.red + ", " + color.green + ', ' + color.blue + ', ' + color.alpha + ')';
+      },
+      tryToParseFromHex: function (hex) {
+        let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})?$/i.exec(hex);
+
+        if (result != null) {
+          color.changeWithoutUpdate('red', parseInt(result[1], 16));
+          color.changeWithoutUpdate('green', parseInt(result[2], 16));
+          color.change('blue', parseInt(result[3], 16));
+          if (!document.querySelector('.hex p').querySelector('span.alpha').classList.contains('hidden')) {
+            color.change('alpha', parseInt(result[4], 16) / 255);
+          }
+        }
       }
-    },
-    change: function (property, value) {
-      color.changeWithoutUpdate(property, value);
-      updateScreen();
-    },
-    get: function () {
-      return 'rgba(' + color.red + ", " + color.green + ', ' + color.blue + ', ' + color.alpha + ')';
-    },
-    tryToParseFromHex: function (hex) {
-      let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    };
+    const hiddenClass = 'paint-color-hidden';
+    const colorBackground = document.querySelector('.color-background');
+    const paintContours = document.querySelectorAll('.paint-contour');
 
-      if (result != null) {
-        color.changeWithoutUpdate('red', parseInt(result[1], 16));
-        color.changeWithoutUpdate('green', parseInt(result[2], 16));
-        color.change('blue', parseInt(result[3], 16));
+    String.prototype.pad = function (size) {
+      var s = this;
+      while (s.length < (size || 2)) {
+        s = "0" + s;
       }
-    }
-  };
-  const hiddenClass = 'paint-color-hidden';
-  const colorBackground = document.querySelector('.color-background');
-  const paintContours = document.querySelectorAll('.paint-contour');
+      return s;
+    };
 
-  String.prototype.pad = function (size) {
-    var s = this;
-    while (s.length < (size || 2)) {
-      s = "0" + s;
-    }
-    return s;
-  };
+    function decimalToHexString(number) {
+      if (number < 0) {
+        number = 0xFFFFFFFF + number + 1;
+      }
 
-  function decimalToHexString(number) {
-    if (number < 0) {
-      number = 0xFFFFFFFF + number + 1;
+      return number.toString(16).toUpperCase().pad(2);
     }
 
-    return number.toString(16).toUpperCase().pad(2);
-  }
-
-  function updateScreen() {
-    for (let key in color) {
-      if (color.hasOwnProperty(key) && typeof(color[key]) != 'function') {
-        let value = color[key], height;
-        let paintColor = document.querySelector('.paint.' + key + ' > .paint-color');
-        if (key != 'alpha') {
+    function updateScreen() {
+      for (let key in color) {
+        if (color.hasOwnProperty(key) && typeof(color[key]) != 'function') {
+          let value = color[key], height;
+          let paintColor = document.querySelector('.paint.' + key + ' > .paint-color');
           let span = document.querySelector('span.' + key);
-          span.textContent = decimalToHexString(parseInt(value));
-          if (value == 0) {
-            paintColor.classList.add(hiddenClass);
+          if (key != 'alpha') {
+            span.textContent = decimalToHexString(parseInt(value));
+            if (value == 0) {
+              paintColor.classList.add(hiddenClass);
+            } else {
+              paintColor.classList.remove(hiddenClass);
+              height = (value / 255) * 50;
+              paintColor.style.maxHeight = height + "%"
+            }
           } else {
-            paintColor.classList.remove(hiddenClass);
-            height = (value / 255) * 50;
-            paintColor.style.maxHeight = height + "%"
+            span.textContent = decimalToHexString(parseInt(value * 255));
+            if (value == 1) {
+              paintColor.classList.add(hiddenClass);
+            } else {
+              paintColor.classList.remove(hiddenClass);
+              height = 50 - (value / 1) * 50;
+              paintColor.style.maxHeight = height + "%"
+            }
           }
-        } else {
-          if (value == 1) {
-            paintColor.classList.add(hiddenClass);
-          } else {
-            paintColor.classList.remove(hiddenClass);
-            height = 50 - (value / 1) * 50;
-            paintColor.style.maxHeight = height + "%"
-          }
-        }
 
-        let input = document.querySelector('input[name="' + key + '"');
-        if (key == 'alpha') {
-          input.value = parseFloat(color[key]).toFixed(2);
-        } else {
-          input.value = color[key];
+          let input = document.querySelector('input[name="' + key + '"');
+          if (key == 'alpha') {
+            input.value = parseFloat(color[key]).toFixed(2);
+          } else {
+            input.value = color[key];
+          }
         }
       }
+
+      colorBackground.style.backgroundColor = color.get();
     }
 
-    colorBackground.style.backgroundColor = color.get();
-  }
+    inputs.forEach(input => {
+      input.addEventListener('change', function () {
+        color.change(this.name, this.value);
+      });
 
-  inputs.forEach(input => {
-    input.addEventListener('change', function () {
-      color.change(this.name, this.value);
+      input.addEventListener('click', function (e) {
+        color.change(this.name, this.value);
+        e.stopPropagation();
+      });
     });
 
-    input.addEventListener('click', function (e) {
-      color.change(this.name, this.value);
-      e.stopPropagation();
+    paintContours.forEach(contour => {
+      contour.addEventListener('mousedown', function (e) {
+            let percentPoint = Math.round(e.offsetY / this.clientHeight * 100);
+            let property, value = 0;
+
+            const parent = this.parentNode;
+            const parentsClasses = [...parent.classList];
+
+            if (parentsClasses.includes('red')) {
+              property = 'red';
+            } else if (parentsClasses.includes('green')) {
+              property = 'green';
+            } else if (parentsClasses.includes('blue')) {
+              property = 'blue';
+            } else if (parentsClasses.includes('alpha')) {
+              property = 'alpha';
+            }
+
+            if (property != 'alpha') {
+              if (percentPoint < 30) {
+                value = 255;
+              } else if (value > 90) {
+                value = 0;
+              } else if (percentPoint > 30 && percentPoint < 60) {
+                value = (60 - percentPoint) / (60 - 30) * (255 - 126) + 126;
+              } else {
+                value = (90 - percentPoint) / (90 - 60) * 126;
+              }
+              value = Math.round(value);
+            } else {
+              if (percentPoint < 30) {
+                value = 1;
+              } else if (percentPoint > 90) {
+                value = 0;
+              } else if (percentPoint > 30 && percentPoint < 60) {
+                value = (60 - percentPoint) / (60 - 30) * (1 - 0.5) + 0.5;
+              } else {
+                value = (90 - percentPoint) / (90 - 60);
+              }
+              value = Math.round(value * 100) / 100;
+              value = 1 - value;
+            }
+
+            color.change(property, value);
+          }
+      );
     });
-  });
 
-  paintContours.forEach(contour => {
-    contour.addEventListener('mousedown', function (e) {
-          let percentPoint = Math.round(e.offsetY / this.clientHeight * 100);
-          let property, value = 0;
+    copyToClipboard = str => {
+      const textArea = document.createElement('textarea');
+      textArea.value = str;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+    };
 
-          const parent = this.parentNode;
-          const parentsClasses = [...parent.classList];
+    showInfo = (position, info) => {
+      let p = document.createElement('p');
+      p.classList.add('info');
+      p.style.left = position.x + 'px';
+      p.style.top = position.y + 'px';
+      p.innerHTML = info;
+      document.body.appendChild(p);
+      console.log(p.style.left);
+      setTimeout(()=> {
+        document.body.removeChild(p);
+      }, 2500);
+    };
 
-          if (parentsClasses.includes('red')) {
-            property = 'red';
-          } else if (parentsClasses.includes('green')) {
-            property = 'green';
-          } else if (parentsClasses.includes('blue')) {
-            property = 'blue';
-          } else if (parentsClasses.includes('alpha')) {
-            property = 'alpha';
-          }
+    const rgbaContainer = document.querySelector('.rgba');
+    const hexContainer = document.querySelector('.hex');
 
-          if (property != 'alpha') {
-            if (percentPoint < 30) {
-              value = 255;
-            } else if (value > 90) {
-              value = 0;
-            } else if (percentPoint > 30 && percentPoint < 60) {
-              value = (60 - percentPoint) / (60 - 30) * (255 - 126) + 126;
-            } else {
-              value = (90 - percentPoint) / (90 - 60) * 126;
-            }
-            value = Math.round(value);
-          } else {
-            if (percentPoint < 30) {
-              value = 1;
-            } else if (percentPoint > 90) {
-              value = 0;
-            } else if (percentPoint > 30 && percentPoint < 60) {
-              value = (60 - percentPoint) / (60 - 30) * (1 - 0.5) + 0.5;
-            } else {
-              value = (90 - percentPoint) / (90 - 60);
-            }
-            value = Math.round(value * 100) / 100;
-            value = 1 - value;
-          }
+    rgbaContainer.addEventListener('click', function (e) {
+      let rgbaColor = 'rgba(' + color.red + ', ' + color.green + ', ' + color.blue + ', ' + color.alpha + ')';
+      rgbaColor += ';';
+      copyToClipboard(rgbaColor);
 
-          color.change(property, value);
+      showInfo({ x: this.offsetLeft + e.layerX, y: this.offsetTop + e.layerY }, "Copied to clipboard!");
+    });
+
+    hexContainer.addEventListener('click', function (e) {
+      const spans = [...document.querySelectorAll('.hex span')];
+      let hexColor = '#';
+      spans.forEach(span => {
+        hexColor += span.textContent;
+      });
+      hexColor += ';';
+      copyToClipboard(hexColor);
+
+      showInfo({ x: this.offsetLeft + e.layerX, y: this.offsetTop + e.layerY }, "Copied to clipboard!");
+    });
+
+    const hexP = document.querySelector('.hex p');
+    hexP.addEventListener('click', function (e) {
+      let input = document.createElement('input');
+      input.type = 'text';
+      input.value = [...hexP.querySelectorAll('span:not(.hidden)')].map(span => span.textContent).join('');
+      let orgHTML = hexP.innerHTML;
+      input.style.width = hexP.offsetWidth + 'px';
+      hexP.innerHTML = '';
+      hexP.appendChild(input);
+      input.focus();
+      input.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+      });
+      input.addEventListener('blur', function (e) {
+        hexP.innerHTML = orgHTML;
+        color.tryToParseFromHex(this.value);
+      });
+      input.addEventListener('keypress', function (e) {
+        if (e.keyCode == 13) {
+          input.blur();
         }
-    );
-  });
-
-  copyToClipboard = str => {
-    const textArea = document.createElement('textarea');
-    textArea.value = str;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-  };
-
-  showInfo = (position, info) => {
-    let p = document.createElement('p');
-    p.classList.add('info');
-    p.style.left = position.x + 'px';
-    p.style.top = position.y + 'px';
-    p.innerHTML = info;
-    document.body.appendChild(p);
-    console.log(p.style.left);
-    setTimeout(()=> {
-      document.body.removeChild(p);
-    }, 2500);
-  };
-
-  const rgbaContainer = document.querySelector('.rgba');
-  const hexContainer = document.querySelector('.hex');
-
-  rgbaContainer.addEventListener('click', function (e) {
-    let rgbaColor = 'rgba(' + color.red + ', ' + color.green + ', ' + color.blue + ', ' + color.alpha + ')';
-    rgbaColor += ';';
-    copyToClipboard(rgbaColor);
-
-    showInfo({ x: this.offsetLeft + e.layerX, y: this.offsetTop + e.layerY }, "Copied to clipboard!");
-  });
-
-  hexContainer.addEventListener('click', function (e) {
-    const spans = [...document.querySelectorAll('.hex span')];
-    let hexColor = '#';
-    spans.forEach(span => {
-      hexColor += span.textContent;
-    });
-    hexColor += ';';
-    copyToClipboard(hexColor);
-
-    showInfo({ x: this.offsetLeft + e.layerX, y: this.offsetTop + e.layerY }, "Copied to clipboard!");
-  });
-
-  const hexP = document.querySelector('.hex p');
-  hexP.addEventListener('click', function (e) {
-    let input = document.createElement('input');
-    input.type = 'text';
-    input.value = [...hexP.querySelectorAll('span')].map(span => span.textContent).join('');
-    let orgHTML = hexP.innerHTML;
-    input.style.width = hexP.offsetWidth + 'px';
-    hexP.innerHTML = '';
-    hexP.appendChild(input);
-    input.focus();
-    input.addEventListener('click', function (e) {
+      });
       e.stopPropagation();
-      e.preventDefault();
     });
-    input.addEventListener('blur', function (e) {
-      hexP.innerHTML = orgHTML;
-      color.tryToParseFromHex(this.value);
-    });
-    input.addEventListener('keypress', function (e) {
-      if (e.keyCode == 13) {
-        input.blur();
-      }
-    });
-    e.stopPropagation();
-  });
 
-  updateScreen();
-</script>
+    updateScreen();
+  </script>
 </body>
 </html>
